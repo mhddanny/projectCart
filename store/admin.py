@@ -1,7 +1,14 @@
 from django.contrib import admin
-from . models import Product, Variation, ReviewRating
+from . models import Product, Variation, ReviewRating, ProductGallery
+import admin_thumbnails
 
 # Register your models here.
+@admin_thumbnails.thumbnail('image')
+class ProdutGalleryInline(admin.TabularInline):
+    model = ProductGallery
+    extra = 1
+
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     '''Admin View for Product'''
@@ -14,6 +21,7 @@ class ProductAdmin(admin.ModelAdmin):
     # search_fields = ('',)
     # date_hierarchy = ''
     # ordering = ('',)
+    inlines = [ProdutGalleryInline]
 
 class VariationAdmin(admin.ModelAdmin):
     list_display = ('product', 'varian_category', 'variation_value', 'is_active')
@@ -22,3 +30,4 @@ class VariationAdmin(admin.ModelAdmin):
 admin.site.register(Variation, VariationAdmin)
 
 admin.site.register(ReviewRating)
+admin.site.register(ProductGallery)

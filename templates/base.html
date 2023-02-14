@@ -7,7 +7,12 @@
 <meta http-equiv="cache-control" content="max-age=604800" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>Ar Rasyiid | One of the Biggest Online Shopping Platform</title>
+<title>
+    {% block title %}
+        {{ page_title|default:" Ar Rasyiid | Store " }}
+    {% endblock title %}
+</title>
+
 
 <link href="{% static 'images/favicon.ico' %}" rel="shortcut icon" type="image/x-icon">
 
@@ -43,6 +48,15 @@ $(document).ready(function() {
 }); 
 // jquery end
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.thumb a').click(function(e){
+            e.preventDefault();
+            $('.mainImage img').attr('src', $(this).attr("href"));
+        })
+    })
+</script>
 
 </head>
 <body>
@@ -56,6 +70,7 @@ $(document).ready(function() {
 
 <!-- Footer -->
 {% include 'includes/footer.html' %}
+
 
 </body>
 </html>

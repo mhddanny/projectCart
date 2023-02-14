@@ -11,11 +11,20 @@
         <div class="row no-gutters">
             <aside class="col-md-6">
                 <article class="gallery-wrap"> 
-                    <div class="img-big-wrap">
-                    <a href="#"><img src="{{single_product.images.url}}"></a>
+                    <div class="img-big-wrap mainImage">
+                    <center><img src="{{single_product.images.url}}"></center>
                     </div> <!-- img-big-wrap.// -->
                     
                 </article> <!-- gallery-wrap .end// -->
+                <ul class="thumb">
+                    <li>
+                        <a href="{{single_product.images.url}}" target="mainImage"><img src="{{single_product.images.url}}" alt="Product Image"></a>
+                        {% for i in product_gallery %}
+                        <a href="{{i.image.url}}" target="mainImage"><img src="{{i.image.url}}" alt="Product Image"></a>
+                            
+                        {% endfor %}
+                    </li>
+                </ul>
             </aside>
             <main class="col-md-6 border-left">
                 <form action="{% url 'add_cart' single_product.id %}" method="POST">
@@ -64,7 +73,9 @@
                         {% if single_product.stock <= 0 %}
                             <h6 class="text-danger"> Out Of Stock </h6>
                         {% else %}
-                            <button type="submit" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </button>
+                            <!-- <button type="submit" class="btn  btn-primary"> <span class="text">Add to cart</span> <i class="fas fa-shopping-cart"></i>  </button> -->
+                            <a class="btn btn-outline-primary" href="https://linktr.ee/ar_rasyiid"><i class="fas fa-shopping-cart"></i></i> Buy</a>
+                            <a class="btn btn-outline-success" href="http://wa.me/+6281211143508"><i class="fab fa-whatsapp" ></i> Chat Whatsapp</a>
                         {% endif %}
                     </article> <!-- product-info-aside .// -->
                 </form>
