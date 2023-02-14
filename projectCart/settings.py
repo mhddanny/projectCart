@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool) #True
 
 # ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['projectCart-test-env.eba-qiqfntn3.us-west-2.elasticbeanstalk.com']
+ALLOWED_HOSTS = ['projectCart-env.eba-g2mw9dch.us-west-2.elasticbeanstalk.com']
 
 
 # Application definition
