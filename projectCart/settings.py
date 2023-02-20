@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=True, cast=bool) #True
 
 ALLOWED_HOSTS = [
-    'projectCartApp-env.us-west-2.elasticbeanstalk.com',
+    'projectCart-dev.us-west-2.elasticbeanstalk.com',
     '*'
 ]
 
